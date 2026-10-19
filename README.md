@@ -1,18 +1,6 @@
-# Paper.js - The Swiss Army Knife of Vector Graphics Scripting [![CI](https://github.com/paperjs/paper.js/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/paperjs/paper.js/actions/workflows/ci.yml) [![NPM](https://img.shields.io/npm/v/paper.svg)](https://www.npmjs.com/package/paper)
+# Scissors – fork of Paper.js
 
-If you want to work with Paper.js, simply download the latest "stable" version
-from [http://paperjs.org/download/](http://paperjs.org/download/)
-
-- Website: <http://paperjs.org/>
-- Questions: <https://stackoverflow.com/questions/tagged/paperjs>
-- Discussion forum: <https://groups.google.com/group/paperjs>
-- Mainline source code: <https://github.com/paperjs/paper.js>
-- Twitter: [@paperjs](https://twitter.com/paperjs)
-- Latest releases: <http://paperjs.org/download/>
-- Pre-built development versions:
-  [`prebuilt/module`](https://github.com/paperjs/paper.js/tree/prebuilt/module)
-  and [`prebuilt/dist`](https://github.com/paperjs/paper.js/tree/prebuilt/dist)
-  branches.
+[![CI](https://github.com/jcubic/scissors/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/jcubic/scissors/actions/workflows/ci.yml) [![NPM](https://img.shields.io/npm/v/@jcubic/scissors.svg)](https://www.npmjs.com/package/@jcubic/scissors)
 
 ## Installing Paper.js
 
@@ -73,107 +61,6 @@ Paper.js, in minified and normal variants:
   support nor Acorn.js. You can use this to shave off some bytes and compilation
   time when working with JavaScript directly.
 
-### Installing Node.js and NPM
-
-Node.js comes with the Node Package Manager (NPM). There are many tutorials
-explaining the different ways to install Node.js on different platforms. It is
-generally not recommended to install Node.js through OS-supplied package
-managers, as the its development cycles move fast and these versions are often
-out-of-date.
-
-On macOS, [Homebrew](https://brew.sh/) is a good option if one version of
-Node.js that is kept up to date with `brew upgrade` is enough:  
-<https://treehouse.github.io/installation-guides/mac/node-mac.html>
-
-[NVM](https://github.com/creationix/nvm) can be used instead to install and
-maintain multiple versions of Node.js on the same platform, as often required by
-different projects:  
-<https://nodesource.com/blog/installing-node-js-tutorial-using-nvm-on-mac-os-x-and-ubuntu/>
-
-Homebrew is recommended on macOS also if you intend to install Paper.js with
-rendering to the Canvas on Node.js, as described in the next paragraph.
-
-For Linux, see <https://nodejs.org/download/> to locate 32-bit and 64-bit
-Node.js binaries as well as sources, or use NVM, as described in the paragraph
-above.
-
-### Installing Paper.js Using NPM
-
-Paper.js comes in three different versions on NPM: `paper`, `paper-jsdom` and
-`paper-jsdom-canvas`. Depending on your use case, you need to required a
-different one:
-
-- `paper` is the main library, and can be used directly in a browser
-  context, e.g. a web browser or worker.
-- `paper-jsdom` is a shim module for Node.js, offering headless use with SVG
-  importing and exporting through [jsdom](https://github.com/tmpvar/jsdom).
-- `paper-jsdom-canvas` is a shim module for Node.js, offering canvas rendering
-  through [Node-Canvas](https://github.com/Automattic/node-canvas) as well as
-  SVG importing and exporting through [jsdom](https://github.com/tmpvar/jsdom).
-
-In order to install `paper-jsdom-canvas`, you need the [Cairo Graphics
-library](https://cairographics.org/) installed in your system:
-
-### Installing Native Dependencies
-
-Paper.js relies on [Node-Canvas](https://github.com/Automattic/node-canvas) for
-rendering, which in turn relies on the native libraries
-[Cairo](https://cairographics.org/) and [Pango](https://www.pango.org/).
-
-#### Installing Native Dependencies on macOS
-
-Paper.js relies on Node-Canvas for rendering, which in turn relies on Cairo and
-Pango. The easiest way to install Cairo is through
-[Homebrew](https://brew.sh/), by issuing the command:
-
-    brew install cairo pango
-
-Note that currently there is an issue on macOS with Cairo. If the above causes
-errors, the following will most likely fix it:
-
-    PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig/ npm install paper
-
-Also, whenever you would like to update the modules, you will need to execute:
-
-    PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig/ npm update
-
-If you keep forgetting about this requirement, or would like to be able to type
-simple and clean commands, add this to your `.bash_profile` file:
-
-    # PKG Config for Pango / Cairo
-    export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
-
-After adding this line, your commands should work in the expected way:
-
-    npm install paper
-    npm update
-
-#### Installing Native Dependencies on Debian/Ubuntu Linux
-
-    sudo apt-get install pkg-config libcairo2-dev libpango1.0-dev libssl-dev libjpeg62-dev libgif-dev
-
-You might also need to install the build-essential package if you don't usually
-build from c++ sources:
-
-    sudo apt-get install build-essential
-
-#### Installing Native Dependencies for Electron
-
-In order to build Node-Canvas for use of `paper-jsdom-canvas` in Electron, which
-is likely to use a different version of V8 than the Node binary installed in
-your system, you need to manually specify the location of Electron’s headers.
-Follow these steps to do so:
-
-[Electron — Using Native Node
-Modules](https://electron.atom.io/docs/tutorial/using-native-node-modules/)
-
-#### After Native Dependencies have been installed
-
-You should now be able to install the Paper.js module with jsdom and Canvas
-rendering from NPM:
-
-    npm install paper-jsdom-canvas
-
 ## Development
 
 The main Paper.js source tree is hosted on
@@ -183,7 +70,7 @@ package manager on your platform.
 
 ### Get the Source
 
-    git clone --recursive git://github.com/paperjs/paper.js.git
+    git clone --recursive git://github.com/jcubic/scissors.git
     cd paper.js
 
 To refresh your clone and fetch changes from origin, run:
@@ -307,7 +194,7 @@ of the repository in which you perform development. See
 <https://help.github.com/articles/fork-a-repo/>.
 
 We prefer that you send a
-[pull request on GitHub](https://help.github.com/articles/about-pull-requests/) 
+[pull request on GitHub](https://help.github.com/articles/about-pull-requests/)
 which will then be merged into the official main line repository.
 
 Also, in your first contribution, add yourself to the end of `AUTHORS.md` (which
@@ -326,7 +213,7 @@ fork](https://help.github.com/articles/fork-a-repo/). Then do this:
 
     git clone --recursive git@github.com:yourusername/paper.js.git
     cd paper.js
-    git remote add upstream git@github.com:paperjs/paper.js.git
+    git remote add upstream git@github.com:jcubic/scissors.js.git
 
 To then fetch changes from upstream, run
 
@@ -371,11 +258,11 @@ starting point and reference. If you are fixing an issue, a convenient way to
 name the branch is to use the issue number as a prefix, like this: `git checkout
 -tb issue-937-feature-add-text-styling`.
 
-For a list of authors and contributors, please see 
-[AUTHORS](https://github.com/paperjs/paper.js/blob/main/AUTHORS.md).
+For a list of authors and contributors, please see
+[AUTHORS](https://github.com/jcubic/scissors/blob/main/AUTHORS.md).
 
 ## License
 
-Distributed under the MIT license. See 
-[LICENSE](https://github.com/paperjs/paper.js/blob/main/LICENSE.txt)
+Distributed under the MIT license. See
+[LICENSE](https://github.com/jcubic/scissors/blob/main/LICENSE.txt)
 for details.
